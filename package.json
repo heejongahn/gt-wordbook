@@ -7,6 +7,11 @@
     "url": "git@github.com:heejongahn/transmorize.git",
     "type": "git"
   },
+  "scripts": {
+    "build": "node_modules/.bin/webpack --progress --colors",
+    "release": "node_modules/.bin/webpack -p --progress --colors",
+    "watch": "node_modules/.bin/webpack --watch --colors"
+  },
   "author": "Heejong Ahn <heejongahn@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -26,5 +31,12 @@
     "react-relay": "^0.9.3",
     "redux": "^3.6.0",
     "relay": "^0.8.0-1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "stylus-loader": "^2.3.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2"
   }
 }
