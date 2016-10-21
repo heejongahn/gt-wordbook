@@ -6,6 +6,8 @@ import logger from 'koa-logger';
 const app = Koa();
 
 app.use(logger());
+app.use(serve(`${__dirname}/public`));
+
 app.use(function* index() {
   yield send(this, './index.html');
 })
