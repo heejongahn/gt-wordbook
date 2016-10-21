@@ -20,17 +20,17 @@ export default {
     filename: '[name].js',
   },
   resolve: {
-    extensions: ['', '.js', '.css']
+    extensions: ['', '.js', '.jsx', '.css']
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         include: [
-          path.resolve(`${rootPath}/js`)
+          absRootPath
         ],
         loader: 'babel',
-        query: { presets: ['es2015', 'react'] }
+        query: { presets: ['react', 'es2015'] }
       },
       {
         test: /\.styl$/,
