@@ -5,6 +5,8 @@ import {
   GraphQLString
 } from 'graphql';
 
+import { db, User } from './database';
+
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'RootQueryType',
@@ -13,6 +15,12 @@ const schema = new GraphQLSchema({
         type: GraphQLString,
         resolve() {
           return 'world';
+        }
+      },
+      me: {
+        type: GraphQLString,
+        resolve() {
+          return User.findAll().then(users => users[0].username);
         }
       }
     }
