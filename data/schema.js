@@ -35,13 +35,16 @@ const schema = new GraphQLSchema({
   mutation: new GraphQLObjectType({
     name: 'RootMutationType',
     fields: {
-      createHajin: {
+      createUser: {
         type: GraphQLString,
-        resolve() {
+        args: {
+          username: { type: GraphQLString }
+        },
+        resolve(_, { username }) {
           return User.create({
-              username: 'Hajin Shim'
+              username
           }).
-          then(user => user);
+          then(user => user.username);
         }
       }
     }
