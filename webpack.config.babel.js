@@ -3,8 +3,11 @@ import webpack from 'webpack';
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const rootPath = './app';
+const rootPath = './';
 const absRootPath = path.resolve(rootPath);
+
+const rootAppPath = './app';
+const absRootAppPath = path.resolve(rootAppPath);
 
 const plugins = [
   new ExtractTextPlugin('style.css'),
@@ -12,7 +15,7 @@ const plugins = [
 
 export default {
   entry: {
-    bundle: `${absRootPath}/main.js`,
+    bundle: `${absRootAppPath}/main.js`,
   },
   output: {
     path: `${absRootPath}/public`,
