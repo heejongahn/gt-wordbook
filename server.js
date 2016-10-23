@@ -5,7 +5,7 @@ import logger from 'koa-logger';
 import mount from 'koa-mount';
 import graphqlHTTP from 'koa-graphql';
 
-import schema from './data/schema';
+import { schema, rootValue } from './data/schema';
 
 const app = Koa();
 
@@ -14,6 +14,7 @@ app.use(serve(`${__dirname}/public`));
 
 app.use(mount('/graphql', graphqlHTTP({
   schema,
+  rootValue,
   graphiql: true
 })));
 
