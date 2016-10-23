@@ -7,6 +7,7 @@ import { User } from './database';
 
 const schema = buildSchema(`
     type User {
+      id: ID
       username: String
     }
 
