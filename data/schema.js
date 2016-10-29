@@ -12,7 +12,7 @@ const schema = buildSchema(`
     }
 
     type Query {
-      me: User
+      user(id: ID): User
       all: [User]
     }
 
@@ -22,12 +22,10 @@ const schema = buildSchema(`
   `);
 
 const rootValue = {
-  me() {
+  user({ id }) {
     return User.findOne({
-      where: {
-        username: 'Heejong Ahn'
-      }}
-    ).then(user => user);
+      where: { id }
+    }).then(user => user);
   },
   all() {
     return User.findAll().
