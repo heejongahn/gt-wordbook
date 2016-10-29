@@ -19,7 +19,7 @@ app.use(mount('/graphql', graphqlHTTP({
 })));
 
 app.use(function* index() {
-  yield send(this, './index.html');
+  yield send(this, './public/index.html');
 })
 
 app.listen(3000);
